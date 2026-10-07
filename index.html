@@ -91,6 +91,7 @@ var SHOP_URL="https://banhyunky.github.io/chungho/";
     $("call").href="tel:"+num;
     $("sms").href="sms:"+num;
     $("shop").href=SHOP_URL+"?p="+encodeURIComponent(p);
+if(window.self!==window.top){$("shop").target="_blank";}
     document.title=d.name+" "+d.role+" | 청호나이스";
     $("save").onclick=function(){
       var v="BEGIN:VCARD\nVERSION:3.0\nFN:"+d.name+" "+d.role+"\nN:"+d.name+";;;;\nORG:"+org+"\nTITLE:"+d.role+"\nTEL;TYPE=CELL:"+d.tel+"\nEND:VCARD";
