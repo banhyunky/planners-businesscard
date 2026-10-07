@@ -1,0 +1,40 @@
+name: 명함 데이터 갱신
+
+on:
+  schedule:
+    - cron: '0 22 * * 0'   # 매주 월요일 오전 7시 (한국시간)
+  workflow_dispatch:        # Actions 탭에서 수동 실행
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 직원 탭에서 명함 데이터 받기
+        env:
+          SRC: https://script.google.com/macros/s/AKfycbyaQJ9M3MuYx6UXSbZOu4tt-Il2q8bEXkrHAcKv3CE1UpM_0U7bB_qXo8TSqUB6qbIt/exec
+        run: |
+          curl -fsSL "$SRC" -o new.json
+          python3 - <<'PY'
+          import json
+          d = json.load(open('new.json', encoding='utf-8'))
+          assert isinstance(d, dict) and len(d) > 0, '데이터가 비어 있음'
+          for k, v in d.items():
+              assert set(v) <= {'name', 'role', 'tel', 'branch'}, f'허용되지 않은 항목: {k}'
+              assert v.get('name') and v.get('tel'), f'이름/번호 누락: {k}'
+          print(len(d), '명 확인')
+          PY
+          mv new.json planners.json
+
+      - name: 바뀐 경우에만 저장
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add planners.json
+          git diff --cached --quiet && echo "변경 없음" && exit 0
+          git commit -m "planners.json 자동 갱신 $(TZ=Asia/Seoul date +%F)"
+          git push
