@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b5fa5">
+<title>청호나이스 명함</title>
+<style>
+:root{--blue:#0b5fa5;--blue2:#1593c9;--ink:#17202b;--sub:#667385;--line:#e8edf3;--bg:#eef2f7;--orange:#ff7a1a}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;justify-content:center;padding:14px}
+.wrap{width:100%;max-width:420px}
+.card{background:#fff;border-radius:24px;box-shadow:0 10px 30px rgba(11,70,130,.14);overflow:hidden}
+.hero{background:linear-gradient(135deg,var(--blue),var(--blue2));padding:22px 22px 54px;color:#fff}
+.logo-pill{display:inline-block;background:#fff;border-radius:12px;padding:6px 12px;line-height:0}
+.logo-pill img{width:104px;height:42px}
+.who{display:flex;align-items:center;gap:16px;margin:-34px 22px 0;position:relative}
+.avatar{width:68px;height:68px;border-radius:50%;background:#fff;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:var(--blue);flex:none}
+.id{padding-top:34px}
+.name{font-size:26px;font-weight:800;line-height:1.1}
+.role{font-size:14px;color:var(--sub);margin-top:4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:18px 22px 4px}
+.tag{font-size:12.5px;color:var(--blue);background:#eaf3fb;border-radius:999px;padding:5px 11px;font-weight:600}
+.info{margin:14px 22px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px}
+.row+.row{border-top:1px solid var(--line)}
+.lab{font-size:12px;color:var(--sub);margin-bottom:2px}
+.val{font-size:17px;font-weight:700;word-break:break-all}
+.copy{flex:none;border:1px solid var(--line);background:#f7f9fc;color:var(--ink);font-size:13px;font-weight:700;border-radius:10px;padding:9px 13px;cursor:pointer;font-family:inherit}
+.copy.ok{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px 22px 0}
+.btn{display:flex;align-items:center;justify-content:center;height:52px;border-radius:14px;font-size:16px;font-weight:700;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:#fff;cursor:pointer;font-family:inherit}
+.btn.call{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn.wide{grid-column:1/3}
+.btn:active{transform:scale(.98)}
+.shop{display:flex;align-items:center;justify-content:center;height:60px;margin:14px 22px 24px;border-radius:16px;background:var(--orange);color:#fff;font-size:18px;font-weight:800;text-decoration:none;box-shadow:0 6px 16px rgba(255,122,26,.35)}
+.foot{text-align:center;font-size:12px;color:#97a3b3;margin:14px 0 4px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="card">
+    <div class="hero"><span class="logo-pill"><img alt="청호나이스" width="104" height="42" src="data:image/webp;base64,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"></span></div>
+    <div class="who">
+      <div class="avatar" id="avatar">반</div>
+      <div class="id"><div class="name" id="name">반현기</div><div class="role" id="role">팀장 · 청호나이스 대전중구지사</div></div>
+    </div>
+    <div class="tags">
+      <span class="tag">정수기</span><span class="tag">공기청정기</span><span class="tag">매트리스</span><span class="tag">비데</span><span class="tag">렌탈 · 일시불</span><span class="tag">타사보상판매</span>
+    </div>
+    <div class="info">
+      <div class="row"><div><div class="lab">휴대폰</div><div class="val" id="tel">010-3041-3282</div></div></div>
+      <div class="row"><div><div class="lab">이메일</div><div class="val" id="mail">10200366@chungho.com</div></div><button class="copy" id="copy" type="button">복사</button></div>
+      <div class="row" id="row2" style="display:none"><div><div class="lab">이메일 2</div><div class="val" id="mail2"></div></div><button class="copy" id="copy2" type="button">복사</button></div>
+    </div>
+    <div class="btns">
+      <a class="btn call" id="call" href="tel:01030413282">전화하기</a>
+      <a class="btn" id="sms" href="sms:01030413282">문자 보내기</a>
+      <button class="btn wide" id="save" type="button">연락처 저장</button>
+    </div>
+    <a class="shop" id="shop" href="./">제품 보기</a>
+  </div>
+  <div class="foot">청호나이스 대전중구지사</div>
+</main>
+<script>
+// 플래너 정보 (사번 키). 플래너 명함을 받으면 아래에 한 줄씩 추가
+// mail2는 두 번째 이메일 (없으면 "" 로 두면 화면에 안 보임)
+var PLANNERS={
+  "10200366":{role:"팀장",name:"반현기",tel:"010-3041-3282",mail:"10200366@chungho.com",mail2:""}
+};
+// 제품 보기 이동 주소 (기존 쇼핑몰 chungho 저장소)
+var SHOP_URL="https://banhyunky.github.io/chungho/";
+
+(function(){
+  var p=new URLSearchParams(location.search).get("p")||"10200366";
+  var d=PLANNERS[p]||PLANNERS["10200366"];
+  var num=d.tel.replace(/[^0-9]/g,"");
+  function $(i){return document.getElementById(i)}
+  $("avatar").textContent=d.name.charAt(0);
+  $("name").textContent=d.name;
+  $("role").textContent=d.role+" · 청호나이스 대전중구지사";
+  $("tel").textContent=d.tel;
+  $("mail").textContent=d.mail;
+  if(d.mail2){$("mail2").textContent=d.mail2;$("row2").style.display="flex"}
+  $("call").href="tel:"+num;
+  $("sms").href="sms:"+num;
+  $("shop").href=SHOP_URL+"?p="+encodeURIComponent(p);
+  document.title=d.name+" "+d.role+" | 청호나이스";
+
+  function bindCopy(btnId,text){
+    $(btnId).onclick=function(){
+      var b=this;
+      function done(){b.textContent="복사됨";b.classList.add("ok");setTimeout(function(){b.textContent="복사";b.classList.remove("ok")},1500)}
+      function fallback(){
+        var t=document.createElement("textarea");t.value=text;t.style.position="fixed";t.style.opacity="0";
+        document.body.appendChild(t);t.select();try{document.execCommand("copy");done()}catch(e){}t.remove();
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,fallback)}else{fallback()}
+    };
+  }
+  bindCopy("copy",d.mail);
+  if(d.mail2){bindCopy("copy2",d.mail2)}
+
+  $("save").onclick=function(){
+    var v="BEGIN:VCARD\nVERSION:3.0\nFN:"+d.name+" "+d.role+"\nN:"+d.name+";;;;\nORG:청호나이스 대전중구지사\nTITLE:"+d.role+"\nTEL;TYPE=CELL:"+d.tel+"\nEMAIL:"+d.mail+(d.mail2?"\nEMAIL:"+d.mail2:"")+"\nEND:VCARD";
+    var a=document.createElement("a");
+    a.href=URL.createObjectURL(new Blob([v],{type:"text/vcard;charset=utf-8"}));
+    a.download=d.name+".vcf";
+    document.body.appendChild(a);a.click();a.remove();
+  };
+})();
+</script>
+</body>
+</html>
