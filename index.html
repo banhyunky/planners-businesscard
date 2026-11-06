@@ -77,9 +77,18 @@ var SHOP_URL="https://banhyunky.github.io/chungho/";
   }
   var p=new URLSearchParams(location.search).get("p")||"";
   if(!p){fail("명함 정보를 찾을 수 없어요","QR 주소가 올바른지 확인하거나<br>담당 플래너에게 문의해 주세요.");return}
+  var LIVE_URL="https://script.google.com/macros/s/AKfycbyaQJ9M3MuYx6UXSbZOu4tt-Il2q8bEXkrHAcKv3CE1UpM_0U7bB_qXo8TSqUB6qbIt/exec";
+  function liveLookup(){
+    var ld=document.createElement("div");
+    ld.textContent="명함을 불러오는 중이에요…";
+    ld.style.cssText="position:fixed;left:0;right:0;top:40%;text-align:center;color:#667385;font-size:15px";
+    document.body.appendChild(ld);
+    return fetch(LIVE_URL).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(all){ld.remove();return all[p]||null},function(e){ld.remove();throw e});
+  }
 
   fetch("planners.json").then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(all){
-    var d=all[p];
+    return all[p]||liveLookup();
+  }).then(function(d){
     if(!d){fail("명함 정보를 찾을 수 없어요","QR 주소가 올바른지 확인하거나<br>담당 플래너에게 문의해 주세요.");return}
     var num=d.tel.replace(/[^0-9]/g,"");
     var org="청호나이스 "+(d.branch||"");
